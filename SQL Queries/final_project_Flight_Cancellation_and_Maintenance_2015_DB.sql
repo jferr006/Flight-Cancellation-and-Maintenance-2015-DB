@@ -1,10 +1,12 @@
--- Final Project Queries for Flight Cancellation and Maintenance 2015 Database
+-- Final Project queries for Flight Cancellation and Maintenance 2015 Database
 
 --1) What's the most common cancellation reason?
 --Jean Charles
 SELECT 
     C.cancellation_description, 
-    COUNT(F.CANCELLED) AS Total_cancellations
+    COUNT(F.CANCELLED) AS Total_Cancellations,
+    CAST(ROUND((COUNT(F.CANCELLED) * 100.0) / 
+        (SELECT COUNT(*) FROM flights_sample WHERE CANCELLED = 1), 0) AS INT) AS Percentage_Of_Total
 FROM flights_sample AS F
 INNER JOIN cancellation_codes AS C ON F.CANCELLATION_REASON = C.cancellation_reason
 WHERE F.CANCELLED = 1
