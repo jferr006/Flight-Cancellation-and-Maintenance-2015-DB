@@ -135,9 +135,9 @@ SELECT
         WHEN 5 THEN 'Friday'
         WHEN 6 THEN 'Saturday'
         WHEN 7 THEN 'Sunday'
-    END AS Day_Initial,
+    END AS Day_of_the_week,
     D.Total_Flights_Scheduled,
-    D.Avg_Departure_Delay, -- Already cast in the CTE above
+    D.Avg_Departure_Delay, 
     CAST((DC.Total_Flights_Cancelled * 100.0 / D.Total_Flights_Scheduled) AS DECIMAL(10,2)) AS Cancellation_Rate_Percent
 FROM DailyStats AS D
 INNER JOIN DailyCancellations AS DC ON D.DAY_OF_WEEK = DC.DAY_OF_WEEK
