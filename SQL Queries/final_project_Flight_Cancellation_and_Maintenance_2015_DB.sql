@@ -159,6 +159,19 @@ GROUP BY AR.airport
 ORDER BY Departures DESC;
 
 --10) Busy airports with major delays 
+
+--Get averagae delay for every airport
+SELECT 
+    AR.airport AS Airport, 
+    COUNT(*) AS Number_of_Flights,
+    CAST(AVG(F.DEPARTURE_DELAY) AS DECIMAL(10,2)) AS Average_Delay
+FROM flights_sample AS F
+INNER JOIN airports AS AR ON F.ORIGIN_AIRPORT = AR.iata_code
+GROUP BY AR.airport
+ORDER BY Average_Delay DESC;
+
+--Get average delay for major airport hubs
+
 SELECT 
     AR.airport AS Airport, 
     COUNT(*) AS Number_of_Flights,
