@@ -261,11 +261,8 @@ GROUP BY ai.manufacturer, ai.year_built, mh.airline_company, mh.tail_number
 ORDER BY Maintenance DESC;
 
 -- 18) Holiday flights
-/*
-using 'flights_sample' and 'airlines' tables.
-We Filter DAY from 'flights_sample' to only include '25' = Christmas Day.
-We Cross reference AIRLINE from 'flights_sample' with iata_code from 'airlines' to get the airline company name.
-*/
+
+--Christmas flights per company
 
 SELECT a.Airline, COUNT(*) AS Christmas_Flights
 FROM flights_sample f
@@ -274,12 +271,7 @@ WHERE f.DAY = 25
 GROUP BY a.Airline
 ORDER BY Christmas_Flights DESC;
 
-/*
-using 'flights_sample' and 'airlines' tables.
-We Filter DAY from 'flights_sample' to only include '31' = New Year's Day.
-We Cross reference AIRLINE from 'flights_sample' with iata_code from 'airlines' to get the airline company name.
-*/
-
+--New Year's Eve flights per company
 SELECT a.Airline, COUNT(*) AS New_Years_Flights
 FROM flights_sample f
 JOIN airlines a ON f.AIRLINE = a.iata_code
