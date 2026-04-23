@@ -1,5 +1,5 @@
 # Flight Cancellation and Maintenance 2015 DB
-https://github.com/jferr006/Flight-Cancelation-and-Maintenance-2015-DB/blob/main/Database%20SQL/Fight-Cancellation-and-Maintenance-2015-DB-22-04-2026.bacpac
+https://github.com/jferr006/Flight-Cancellation-and-Maintenance-2015-DB/blob/main/Database%20SQL/Fight-Cancellation-and-Maintenance-2015-DB-22-04-2026.bacpac
 
 ## Overview
 This project presents a comprehensive analysis of aviation operational data using the **Flight Cancellation and Maintenance 2015 DB**. The objective is to evaluate the relationship between scheduled flight operations, mechanical maintenance logs, and systemic disruptions to identify factors impacting airline reliability and efficiency during December 2015.
