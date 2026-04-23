@@ -280,12 +280,6 @@ GROUP BY a.Airline
 ORDER BY New_Years_Flights DESC;
 
 -- 19) Highest seated capacity rated
-/*
-We pull form the aircraft_info table selecting columns seating_capacity and tail_number.
-We pull from the maintenance_history table selecting tail_number and airline_company.
-We cross reference tail_number from both tables to get the airline company name and seating capacity.
-Showing the top 10 highest seating capacity models of each airline company.
-*/
 
 SELECT mh.airline_company, ai.tail_number, ai.manufacturer, ai.model, ai.seating_capacity
 FROM maintenance_history mh
@@ -293,11 +287,6 @@ JOIN aircraft_info ai ON mh.tail_number = ai.tail_number
 ORDER BY ai.seating_capacity DESC;
 
 -- 20) Most expensive maintenance cost
-/*
-We will be using the tables 'maintenance_history'.
-Selecting columns airline_company, tail_number, maintenance_cost.
-We will be joining each unique airline_company with their respective tail_number and maintenance_cost.
-*/
 
 SELECT 
     airline_company,
@@ -309,11 +298,6 @@ GROUP BY airline_company
 ORDER BY total_cost DESC;
 
 -- 21) Airline with the most expensive maintenance cost per seating capacity
-/*
-We will be using the tables 'maintenance_history' and 'aircraft_info'.
-We will join these tables on the 'tail_number' column.
-We will calculate the total maintenance cost for each airline and divide it by the total seating capacity of all aircraft operated by that airline.
-*/
 
 SELECT 
     mh.airline_company,
@@ -326,17 +310,12 @@ GROUP BY mh.airline_company
 ORDER BY mtnc_cost_vs_seat_cap DESC;
 
 -- 22) Most used aircraft model from each airline company
-/*
-We will be using the tables maintenance_history and aircraft_info.
-we will join these tables on the tail_number column.
-We will group by airline_company, manufacturer, and model to get the count of each model used by each airline company.
-*/
 
 SELECT
     mh.airline_company,
     ai.manufacturer,
     ai.model,
-    COUNT(*) AS usace_count
+    COUNT(*) AS usage_count
 FROM maintenance_history mh
 JOIN aircraft_info ai ON mh.tail_number = ai.tail_number
 GROUP BY mh.airline_company, ai.manufacturer, ai.model
