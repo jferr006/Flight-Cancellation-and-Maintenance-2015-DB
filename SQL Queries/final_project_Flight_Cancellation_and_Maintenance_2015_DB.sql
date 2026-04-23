@@ -88,6 +88,8 @@ BEGIN
         ORDER BY F.YEAR, F.MONTH, F.DAY;
 END
 GO
+
+--Executing stored procedure to get flight details for flight 1187 that experienced above average delay.
 EXEC GetFlightDetails @FlightNumber = 1187
 
 --6) Which airlines are the most popular? 
